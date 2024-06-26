@@ -11,7 +11,7 @@ export default async function handler(
   try {
     await fileLoader.uploadFileTemp(req, res);
     const response = await services.speechToText({
-      apiKey: process.env.OPEN_AI!,
+      apiKey: req.headers.api_key as string,
       file: req.file.path,
     });
     return res.status(200).json({ data: response });
