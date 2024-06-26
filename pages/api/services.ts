@@ -10,9 +10,11 @@ export default async function handler(
 ) {
   try {
     await fileLoader.uploadFileTemp(req, res);
+    console.log(req.file);
     const response = await services.speechToText({
       apiKey: req.headers.api_key as string,
-      file: req.file.path,
+      // file: `./temp/${req.file.filename}.wav`,
+      file: req.file,
     });
     return res.status(200).json({ data: response });
   } catch (e: any) {
