@@ -81,11 +81,14 @@ class FileLoader {
       this.upload.single("file")(req as any, res as any, (err: any) => {
         if (err instanceof multer.MulterError) {
           console.error(err);
-          return reject({ status: 400, message: "File upload error" });
+          return reject({ status: 400, message: `File upload error: ${err}` });
         }
         if (err) {
           console.error(err);
-          return reject({ status: 500, message: "Internal server error" });
+          return reject({
+            status: 500,
+            message: `Internal server error: ${err}`,
+          });
         }
         resolve("");
       });
