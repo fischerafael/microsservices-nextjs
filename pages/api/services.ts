@@ -2,7 +2,12 @@ import { NextApiRequestWithFile, fileLoader } from "@/server/config/multer";
 import { services } from "@/server/services";
 import type { NextApiResponse } from "next";
 
-export const config = fileLoader.disableBodyParser();
+// export const config = fileLoader.disableBodyParser();
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 export default async function handler(
   req: NextApiRequestWithFile,
