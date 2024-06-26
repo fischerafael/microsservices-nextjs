@@ -13,7 +13,6 @@ export default async function handler(
     console.log(req.file);
     const response = await services.speechToText({
       apiKey: req.headers.api_key as string,
-      // file: `./temp/${req.file.filename}.wav`,
       file: req.file,
     });
     return res.status(200).json({ data: response });
