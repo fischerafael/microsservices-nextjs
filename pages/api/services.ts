@@ -7,7 +7,10 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const response = await services.speechToText();
+    const response = await services.speechToText({
+      apiKey: process.env.OPEN_AI!,
+      file: "",
+    });
     return res.status(200).json({ data: response });
   } catch (e: any) {
     return res.status(500).json({ e: e.message });
