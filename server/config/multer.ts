@@ -14,7 +14,7 @@ class FileLoader {
       //   }
       //   cb(null, "./temp");
       // },
-      destination: "./public/uploads",
+      destination: "./public",
       filename: function (req, file, cb) {
         cb(null, `${Date.now()}_${file.originalname}`);
       },
