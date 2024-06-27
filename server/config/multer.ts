@@ -60,9 +60,6 @@ export interface NextApiRequestWithFile extends NextApiRequest {
   file: any;
 }
 
-// import multer from "multer";
-// import { NextApiRequest } from "next";
-
 // class FileLoader {
 //   private upload = multer({
 //     storage: multer.diskStorage({}),
@@ -107,3 +104,42 @@ export interface NextApiRequestWithFile extends NextApiRequest {
 //     size: number;
 //   };
 // }
+
+// class FileLoader {
+//   private upload = multer({
+//     storage: multer.memoryStorage(),
+//     limits: { fileSize: 20 * 1024 * 1024 }, // Limite de tamanho do arquivo, ajuste conforme necessário
+//   });
+
+//   disableBodyParser = () => {
+//     return {
+//       api: {
+//         bodyParser: false,
+//       },
+//     };
+//   };
+
+//   uploadFileTemp = async (req: any, res: any) => {
+//     await new Promise((resolve, reject) => {
+//       this.upload.single("file")(req, res, (err: any) => {
+//         if (err instanceof multer.MulterError) {
+//           console.error("MulterError:", err);
+//           return reject({
+//             status: 400,
+//             message: `Erro no upload do arquivo: ${err}`,
+//           });
+//         }
+//         if (err) {
+//           console.error("Erro:", err);
+//           return reject({
+//             status: 500,
+//             message: `Erro interno do servidor: ${err}`,
+//           });
+//         }
+//         resolve("");
+//       });
+//     });
+//   };
+// }
+
+// export const fileLoader = new FileLoader();

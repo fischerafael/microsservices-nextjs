@@ -6,14 +6,14 @@ const speechToText = async ({
   file,
 }: {
   apiKey: string;
-  file: { path: string; mimetype: string };
+  file: any;
 }) => {
   const openai = new OpenAI({
     apiKey: apiKey,
   });
 
   const transcription = await openai.audio.transcriptions.create({
-    file: fs.createReadStream(file.path),
+    file: file,
     model: "whisper-1",
   });
 
