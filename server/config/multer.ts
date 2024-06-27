@@ -6,16 +6,17 @@ import { NextApiRequest } from "next";
 class FileLoader {
   private upload = multer({
     storage: multer.diskStorage({
-      destination: function (req, file, cb) {
-        const uploadDir = path.join(process.cwd(), "temp");
+      // destination: function (req, file, cb) {
+      //   const uploadDir = path.join(process.cwd(), "temp");
 
-        if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir, { recursive: true });
-        }
-        cb(null, "./temp");
-      },
+      //   if (!fs.existsSync(uploadDir)) {
+      //     fs.mkdirSync(uploadDir, { recursive: true });
+      //   }
+      //   cb(null, "./temp");
+      // },
+      destination: "./public/uploads",
       filename: function (req, file, cb) {
-        cb(null, file.originalname);
+        cb(null, `${Date.now()}_${file.originalname}`);
       },
     }),
     limits: { fileSize: 20 * 1024 * 1024 },

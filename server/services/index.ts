@@ -13,7 +13,7 @@ const speechToText = async ({
   });
 
   const transcription = await openai.audio.transcriptions.create({
-    file: file,
+    file: fs.createReadStream(file.path),
     model: "whisper-1",
   });
 
