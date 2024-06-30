@@ -3,11 +3,6 @@ import { services } from "@/server/services";
 import type { NextApiResponse } from "next";
 
 export const config = fileLoader.disableBodyParser();
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
 
 export default async function handler(req: any, res: NextApiResponse) {
   try {
