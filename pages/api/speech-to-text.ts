@@ -1,5 +1,6 @@
 import { fileLoader } from "@/server/config/multer";
-import { services } from "@/server/services";
+import { services } from "@/server/services/speech.to.text";
+
 import type { NextApiResponse } from "next";
 
 export const config = fileLoader.disableBodyParser();
