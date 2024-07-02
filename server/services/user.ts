@@ -19,6 +19,7 @@ const createOrRetrieveUser: CreateOrRetrieveUser = async (input) => {
       action: "LIST",
     },
   });
+  return "";
 
   // console.log("[data]", data);
 };
