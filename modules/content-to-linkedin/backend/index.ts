@@ -15,6 +15,7 @@ const create = async (
       tags,
       description,
       entity: "TEMPLATES",
+      isActive: true,
     },
     {
       headers: {
@@ -46,10 +47,23 @@ const remove = async (id: string) => {
   await apiLinkedinTemplates.delete(`/crud?id=${id}`);
 };
 
+const update = async (
+  id: string,
+  data: {
+    title?: string;
+    template?: string;
+    tags?: string[];
+    description?: string;
+  }
+) => {
+  await apiLinkedinTemplates.patch(`/crud?id=${id}`, { ...data });
+};
+
 export const contentToLinkedin = {
   create,
   remove,
   list,
+  update,
 };
 
 interface ILinkedinTemplate {

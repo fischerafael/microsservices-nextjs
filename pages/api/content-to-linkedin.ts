@@ -31,6 +31,11 @@ export default async function handler(
       return res.status(200).json({ data: output });
     }
 
+    if (method === "PATCH") {
+      await contentToLinkedin.update(query.id as string, body);
+      return res.status(204).json({ data: "output" });
+    }
+
     return res.status(405).json({ data: "Not Implemented" });
   } catch (e: any) {
     console.log(e);
