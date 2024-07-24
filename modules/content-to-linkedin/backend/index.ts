@@ -1,15 +1,18 @@
 export const contentToLinkedin = {};
 
 interface ILinkedinTemplate {
-  id: string;
+  id?: string;
   template: string;
   tags: string[];
   title: string;
   description: string;
 }
 
-const templates: ILinkedinTemplate = [
+const templates: ILinkedinTemplate[] = [
   {
-    id: "1",
+    description: "",
+    title: "Bold Claim",
+    tags: [],
+    template: "",
   },
 ];
